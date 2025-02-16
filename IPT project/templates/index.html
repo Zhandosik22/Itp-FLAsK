@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Про нас</title>
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="card-deck mb-3 text-center">
+    {% for el in data %}
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{el.title }}</h4>
+      </div>
+      <div class="card-body">
+        <h1 class="card-title pricing-card-title">{{ el.price}} <small class="text-muted">/ $</small></h1>
+        <p>{{ el.text }}</p>
+        <a type="button" class="btn btn-lg btn-block btn-outline-primary">buy</a>
+        <form action="{{ url_for('delete_item', id=el.id) }}" method="POST">
+            <button type="submit" class="btn btn-danger">Удалить</button>
+        </form>
+      </div>
+        <br>
+        <br>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

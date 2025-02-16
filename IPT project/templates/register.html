@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+{% block body %}
+<div class="container">
+    <h1>Register</h1>
+    <form method="POST">
+        <input type="text" class="form-control"   name="username" placeholder="Username" required> <br>
+        <input type="password" class="form-control" name="password" placeholder="Password" required><br>
+        <button class="btn btn-success type="submit">Register</button><br>
+    </form>
+    <a class="p-2 text-dark" href="{{ url_for('login') }}">Login</a>
+</div>
+{% endblock %}
